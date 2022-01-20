@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {Header} from './components/header/header'
+import React from "react";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { Navbar } from './components/navbar/navbar';
+import Main from './pages/main/Main';
+import {useState} from 'react'
+
 
 function App() {
+  const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')) || [])
+  const [pizza, setPizza] = useState([]);
+  const [login, setLogin] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className='App'>
+      <Header setLogin={setLogin} login={login}/>
+      <Navbar  basket={basket}/>
+      <Switch>
+         <Route exact path='/'>
+          <Main pizza={pizza} setPizza={setPizza} setBasket={setBasket}/>
+         </Route>
+         <Route exact path='/stocks'>
+            <div>STocKs</div>
+         </Route>
+      </Switch>
+
     </div>
-  );
+  </Router>
+);
 }
+
+
+
 
 export default App;
