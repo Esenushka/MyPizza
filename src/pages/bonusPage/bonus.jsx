@@ -14,7 +14,7 @@ export const BonusPage = ()=>{
     },[])
     return(
         <div className=' container'>
-            <div className={css.title}>Акции</div>
+            <div className={css.title}>Акции ДОДО</div>
             <div className={css.bonus}>
                 {bonus.map((e)=> 
                     <BonusCard img={e.img} name={e.name} des={e.des}/>
