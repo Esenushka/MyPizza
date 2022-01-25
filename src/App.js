@@ -7,12 +7,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  useLocation
 } from "react-router-dom";
 import { Navbar } from './components/navbar/navbar';
 import Main from './pages/main/Main';
 import {useState} from 'react'
 import { BonusPage } from './pages/bonusPage/bonus';
+import { Admin } from './pages/admin/admin';
 
 
 function App() {
@@ -22,15 +23,21 @@ function App() {
   return (
     <Router>
     <div className='App'>
-      <Header setLogin={setLogin} login={login}/>
-      <Navbar  basket={basket}/>
       <Switch>
          <Route exact path='/'>
+         <Header setLogin={setLogin} login={login}/>
+      <Navbar  basket={basket}/>
           <Main pizza={pizza} setPizza={setPizza} setBasket={setBasket}/>
          </Route>
-         <Route exact path='/bonus'>
+         <Route path='/bonus'>
+         <Header setLogin={setLogin} login={login}/>
+      <Navbar  basket={basket}/>
             <BonusPage/>
          </Route>
+         <Route path='/admin'>
+           <Admin/>
+         </Route>
+
       </Switch>
 
     </div>
