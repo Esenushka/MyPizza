@@ -12,10 +12,10 @@ export default function Main (props){
     
 
     useEffect(()=>{
-        fetch("https://pizza-app-ulan.herokuapp.com/getall/pizza")
+        fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/pizzas")
         .then((res) => res.json())
         .then((data) => {
-            props.setPizza(data.data.data)
+            props.setPizza(data)
             
         })
     },[])
@@ -58,7 +58,7 @@ export default function Main (props){
             </div>
                 <div className={css.pizzaTitle + ' container'}>Пицца</div>
                 <div className={'container ' + css.wrapper}>
-                {props.pizza.map((e) => <Pizzas setBasket={props.setBasket} img={e.img} name={e.name} des={e.info} cost={e.price} key={e.id} id={e.id} /> )}
+                {props.pizza.map((e) => <Pizzas setBasket={props.setBasket} img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id} id={e.id} /> )}
                 </div>
                 
             </div>

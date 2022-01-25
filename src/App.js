@@ -12,6 +12,7 @@ import {
 import { Navbar } from './components/navbar/navbar';
 import Main from './pages/main/Main';
 import {useState} from 'react'
+import { BonusPage } from './pages/bonusPage/bonus';
 
 
 function App() {
@@ -27,8 +28,8 @@ function App() {
          <Route exact path='/'>
           <Main pizza={pizza} setPizza={setPizza} setBasket={setBasket}/>
          </Route>
-         <Route exact path='/stocks'>
-            <div>STocKs</div>
+         <Route exact path='/bonus'>
+            <BonusPage/>
          </Route>
       </Switch>
 

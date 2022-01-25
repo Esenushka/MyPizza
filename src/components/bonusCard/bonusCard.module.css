@@ -1,0 +1,27 @@
+.bonusWrapper{
+    width: 330px;
+    height: 340px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 12px -4px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+.img{
+    margin: -16px -16px 0px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.name{
+    margin: 12px 0px 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    color: rgb(0, 0, 0);
+}
+.des{
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(92, 99, 112);
+}

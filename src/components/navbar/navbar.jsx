@@ -16,7 +16,7 @@ export const Navbar = ({basket}) =>{
                  <a className={css.navbars}>Десерты</a>
                  <a className={css.navbars}>Напитки</a>
                  <a className={css.navbars}>Другие товары</a>
-                 <a className={css.navbars}>Акции</a>
+                 <Link to='/bonus' className={css.navbars}>Акции</Link>
                  <a className={css.navbars}>Контакты</a>
                  <a className={css.navbars}>О нас</a>
                  <a className={css.navbars}>Прямой эфир</a>
