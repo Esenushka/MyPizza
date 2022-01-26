@@ -25,19 +25,21 @@ function App() {
     <div className='App'>
       <Switch>
          <Route exact path='/'>
-         <Header setLogin={setLogin} login={login}/>
-      <Navbar  basket={basket}/>
+         <Header />
+      <Navbar setLogin={setLogin} login={login} basket={basket}/>
           <Main pizza={pizza} setPizza={setPizza} setBasket={setBasket}/>
          </Route>
          <Route path='/bonus'>
-         <Header setLogin={setLogin} login={login}/>
-      <Navbar  basket={basket}/>
+         <Header />
+      <Navbar setLogin={setLogin} login={login} basket={basket}/>
             <BonusPage/>
          </Route>
-         <Route path='/admin'>
+         <Route path='/adminAuth'>
            <Admin/>
          </Route>
-
+        <Route path='/adminPanel'>
+           PANEL
+        </Route>
       </Switch>
 
     </div>
