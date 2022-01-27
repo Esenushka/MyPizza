@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom'
 import css from './header.module.css'
-export const Header = ({setLogin , ...props}) => {
-    const openLogin = ()=>{
-        setLogin(!props.login)
-    }
+export const Header = (props) => {
+
     return(
         <div className={css.wrapper + ' container'}>
             <div className={css.left}>
@@ -29,31 +27,10 @@ export const Header = ({setLogin , ...props}) => {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M11 1a1 1 0 011 1v2a8 8 0 110 16v2a1 1 0 11-2 0v-2H6.6c-.56 0-.84 0-1.054-.109a1 1 0 01-.437-.437C5 19.24 5 18.96 5 18.4V5.6c0-.56 0-.84.109-1.054a1 1 0 01.437-.437C5.76 4 6.04 4 6.6 4H10V2a1 1 0 011-1zm1 17a6 6 0 000-12H7v12h5z" fill="#000"></path></svg>
                 <span className={css.label}>Додокоины</span>
                 </Link>
-                <div onClick={openLogin} className={css.login}>
-                    Войти
-                </div>
             </div>
                
 
-               <div className={css.all + ' ' + (props.login ? css.active4 : '')}>
-              
-            <div onClick={openLogin} className={css.loginBack + ' ' + (props.login ? css.active1 : '')}>
-           </div>
-            <div className={css.loginBlock + ' ' + (props.login ? css.active2 : '')}>
-               <div className={css.block + ' ' + (props.login ? css.active3 : '')}>
-                <div onClick={openLogin} className={css.blockImg}>         
-                   <svg width="25" height="25" viewBox="0 0 25 25" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M9.61 12.199L.54 3.129A1.833 1.833 0 113.13.536l9.07 9.07L21.27.54a1.833 1.833 0 012.592 2.592l-9.068 9.068 9.07 9.07a1.833 1.833 0 01-2.59 2.592l-9.072-9.07-9.073 9.073a1.833 1.833 0 01-2.591-2.592L9.61 12.2z" fill="#fff"></path></svg>
-                </div>
-                  <div className={css.blockTitle}>
-                    Вход на сайт
-                  </div>
-                  <div className={css.blockInfo}>Подарим подарок на день рождения, сохраним адрес доставки и расскажем об акциях</div>
-                  <div className={css.telInput}>Номер телефона</div>
-                  <input className={css.input} type="tel" placeholder='+996 999-000005' value='+996' />
-               </div>
-               
-            </div>
-           </div>
+
 
         </div>
     )

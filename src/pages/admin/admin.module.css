@@ -1,0 +1,36 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.block{
+    width: 350px;
+    height: 200px;
+    border: solid 3px gold;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.block input{
+    width: 280px;
+    height: 25px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.block button{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    background: white;
+    border: solid 1px black;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.block button:hover{
+    background: gainsboro;
+}
