@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
 }
 .block{
     width: 350px;
@@ -33,4 +34,15 @@
 }
 .block button:hover{
     background: gainsboro;
+}
+.active1{
+    border: solid red;
+    color: red;
+}
+.active2{
+    border: solid red;
+    color: red;
+}
+.active3{
+    border: solid red;
 }
