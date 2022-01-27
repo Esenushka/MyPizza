@@ -13,16 +13,16 @@ export const Navbar = ({setLogin,...props}) =>{
         <nav className={css.navbar}>
         <div className={'container ' + css.cont}>
              <div className={css.help}>
-                 <a className={css.navbars}>Пицца</a>
-                 <a className={css.navbars}>Комбо</a>
-                 <a className={css.navbars}>Закуски</a>
-                 <a className={css.navbars}>Десерты</a>
-                 <a className={css.navbars}>Напитки</a>
-                 <a className={css.navbars}>Другие товары</a>
+                 <a href='navbar' className={css.navbars}>Пицца</a>
+                 <a href='navbar' className={css.navbars}>Комбо</a>
+                 <a href='navbar' className={css.navbars}>Закуски</a>
+                 <a href='navbar' className={css.navbars}>Десерты</a>
+                 <a href='navbar' className={css.navbars}>Напитки</a>
+                 <a href='navbar' className={css.navbars}>Другие товары</a>
                  <Link to='/bonus' className={css.navbars}>Акции</Link>
-                 <a className={css.navbars}>Контакты</a>
-                 <a className={css.navbars}>О нас</a>
-                 <a className={css.navbars}>Прямой эфир</a>
+                 <a href='navbar' className={css.navbars}>Контакты</a>
+                 <a href='navbar' className={css.navbars}>О нас</a>
+                 <a href='navbar' className={css.navbars}>Прямой эфир</a>
 
              </div> 
              <div onClick={BasketWindow} className={css.bucket}>Корзина<div className={css.many}>{props.basket.length}</div></div>
@@ -98,7 +98,7 @@ export const Navbar = ({setLogin,...props}) =>{
 export default function BasketPizzas (props){
     return(
         <div className={css.block}>
-            <img className={css.img} src={props.img}/>
+            <img alt='#' className={css.img} src={props.img}/>
             <div className={css.nameDes} >
                 <div className={css.name}>{props.name}</div>
             <div className={css.des}>Средняя , традиционая тесто</div>

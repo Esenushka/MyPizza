@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useLocation
 } from "react-router-dom";
 import { Navbar } from './components/navbar/navbar';
 import Main from './pages/main/Main';
@@ -15,7 +14,7 @@ import {useState} from 'react'
 import { BonusPage } from './pages/bonusPage/bonus';
 import { Admin } from './pages/admin/admin';
 import { AdminPanel } from './pages/adminPanel/panel';
-import { PizzasEdit } from './components/pizzasEdit/pizzasEdit'
+
 
 
 function App() {

@@ -24,7 +24,7 @@ export const Pizzas = ({setBasket , ...props}) => {
                 <Link to='/' className={css.pizza2}>
                     
                         <div className={css.imgWrapper}>
-                           <img src={props.img}/>
+                           <img src={props.img} alt='#'/>
                         </div>
                         <div>
                               <div className={css.pizzaName}>{props.name}</div> <br />

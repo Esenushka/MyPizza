@@ -18,7 +18,7 @@ export default function Main (props){
             props.setPizza(data)
             
         })
-    },[])
+    })
     
     useEffect(()=>{
         fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/order")
@@ -49,7 +49,7 @@ export default function Main (props){
                 <div className={css.meat}>
                 
         
-                <img src='https://dodopizza-a.akamaihd.net/site-static/dist/f30f1ab8cd7a7a54476d.svg'/>
+                <img alt="#" src='https://dodopizza-a.akamaihd.net/site-static/dist/f30f1ab8cd7a7a54476d.svg'/>
                 <div>
                     <div>Без свинины</div>
                 <div className={css.without}>Мы готовим из цыпленка и говядины</div>

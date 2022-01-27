@@ -16,7 +16,7 @@ export const AdminPanel = ({setPizza, ...props})=>{
             setPizza(data)
             
         })
-    },[])
+    })
     return(
         <div>
             <div className={css.navbar}>
