@@ -1,8 +1,14 @@
 .help{
     display: flex;
     justify-content: space-between;
-    width: 50%;
-   
+    width: 70%;
+   align-items: center;
+}
+.help h1{
+    background-image: linear-gradient(60deg, #E21143, #FFB03A);
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
 }
 .navbars{
     color: black;

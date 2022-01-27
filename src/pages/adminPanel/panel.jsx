@@ -22,6 +22,7 @@ export const AdminPanel = ({setPizza, ...props})=>{
             <div className={css.navbar}>
                     <div className={'container ' + css.cont}>
              <div className={css.help}>
+                 <h1>ADMIN PANEL</h1>
                  <Link className={css.navbars}>Пицца</Link>
                  <Link className={css.navbars}>Комбо</Link>
                  <Link className={css.navbars}>Закуски</Link>
