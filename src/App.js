@@ -14,6 +14,8 @@ import Main from './pages/main/Main';
 import {useState} from 'react'
 import { BonusPage } from './pages/bonusPage/bonus';
 import { Admin } from './pages/admin/admin';
+import { AdminPanel } from './pages/adminPanel/panel';
+import { PizzasEdit } from './components/pizzasEdit/pizzasEdit'
 
 
 function App() {
@@ -38,7 +40,8 @@ function App() {
            <Admin/>
          </Route>
         <Route path='/adminPanel'>
-           PANEL
+          <AdminPanel pizza={pizza} setPizza={setPizza}/>
+         
         </Route>
       </Switch>
 
