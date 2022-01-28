@@ -21,6 +21,7 @@ function App() {
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')) || [])
   const [pizza, setPizza] = useState([]);
   const [login, setLogin] = useState(false)
+  const [token, setToken] = useState('')
   return (
     <Router>
     <div className='App'>
@@ -36,10 +37,10 @@ function App() {
             <BonusPage/>
          </Route>
          <Route path='/adminAuth'>
-           <Admin/>
+           <Admin auth={false} />
          </Route>
         <Route path='/adminPanel'>
-          <AdminPanel pizza={pizza} setPizza={setPizza}/>
+          <AdminPanel auth={false} pizza={pizza} setPizza={setPizza}/>
          
         </Route>
       </Switch>

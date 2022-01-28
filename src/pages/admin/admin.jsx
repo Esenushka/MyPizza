@@ -1,8 +1,11 @@
 import css from './admin.module.css'
-import { useHistory } from 'react-router-dom'
+import { useHistory ,Redirect } from 'react-router-dom'
 import { useState } from 'react';
 
-export const Admin = ()=>{
+
+
+export const Admin = ({ auth })=>{
+    
     const [error,setError] = useState('')
     const [user,setUser] = useState('')
     const [pass,setPass] = useState('')
@@ -23,7 +26,7 @@ export const Admin = ()=>{
         .then((data) => {
             history.push('/adminPanel')
             if(data?.token){
-                console.log('sucess');
+                
             }else{
                 setError(data.msg)
             }
@@ -32,7 +35,11 @@ export const Admin = ()=>{
         .catch((error) => {
             console.log(error);
         })
+        
     }
+    if(!auth){
+            return <Redirect to='/'/>
+        }
     return(
         <div className={css.wrapper}>
             <form onSubmit={submit}>

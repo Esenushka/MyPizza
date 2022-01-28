@@ -1,11 +1,14 @@
 import css from './panel.module.css'
-import { Link, useHistory } from 'react-router-dom'
-import { PizzasEdit } from '../../components/pizzasEdit/pizzasEdit'
 import { useEffect } from 'react'
+import { Link, Redirect, useHistory } from 'react-router-dom'
+import { PizzasEdit } from '../../components/pizzasEdit/pizzasEdit'
 
 
-export const AdminPanel = ({setPizza, ...props})=>{
-    const history = useHistory();
+
+
+export const AdminPanel = ({setPizza, auth , ...props})=>{
+    
+    
     const leave =()=>{
        history.push('/')
     }
@@ -17,6 +20,10 @@ export const AdminPanel = ({setPizza, ...props})=>{
             
         })
     })
+    const history = useHistory();
+    if(!auth){
+        return <Redirect to='/adminAuth'/>
+    }
     return(
         <div>
             <div className={css.navbar}>
