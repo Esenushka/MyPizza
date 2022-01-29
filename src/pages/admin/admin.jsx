@@ -4,32 +4,37 @@ import { useState } from 'react';
 
 
 
-export const Admin = ({ auth })=>{
+export const Admin = ({ auth  , setIsAuth })=>{
     
-    const [error,setError] = useState('')
     const [user,setUser] = useState('')
     const [pass,setPass] = useState('')
-    let history = useHistory();
+    const [dis,setDis] = useState(false)
     const submit =(e)=>{
         e.preventDefault()
+        setDis(true)
         // if(user === 'Esenushka' && pass === 'esen2709'){
         //     history.push('/adminPanel')
         // }
         fetch('https://pizza-app-ulan.herokuapp.com/admin', {
             method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({
                 login: user,
                 password: pass
             })
         })
+        .finally(()=>{
+            setDis(true)
+        })
         .then((res) => res.json())
         .then((data) => {
-            history.push('/adminPanel')
             if(data?.token){
-                
-            }else{
-                setError(data.msg)
+                setIsAuth(data)
+              
             }
+            
             
         })
         .catch((error) => {
@@ -37,9 +42,7 @@ export const Admin = ({ auth })=>{
         })
         
     }
-    if(!auth){
-            return <Redirect to='/'/>
-        }
+    
     return(
         <div className={css.wrapper}>
             <form onSubmit={submit}>
@@ -47,9 +50,9 @@ export const Admin = ({ auth })=>{
                 <h2>Admin</h2>
                <input value={user} onChange={(e)=> setUser(e.target.value)} placeholder='Login' type="text" /> 
                <input value={pass} onChange={(e)=> setPass(e.target.value)} placeholder='Password' type='password'/>
-               <button>LOGIN</button>
+               <button disabled={dis}>LOGIN</button>
             </div>
-            <h2>{error}</h2>
+         
             </form>
         </div>
     )

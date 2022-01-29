@@ -6,12 +6,9 @@ import { PizzasEdit } from '../../components/pizzasEdit/pizzasEdit'
 
 
 
-export const AdminPanel = ({setPizza, auth , ...props})=>{
+export const AdminPanel = ({setPizza , pizza, setIsAuth})=>{
     
-    
-    const leave =()=>{
-       history.push('/')
-    }
+   
     useEffect(()=>{
         fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/pizzas")
         .then((res) => res.json())
@@ -20,9 +17,11 @@ export const AdminPanel = ({setPizza, auth , ...props})=>{
             
         })
     })
-    const history = useHistory();
-    if(!auth){
-        return <Redirect to='/adminAuth'/>
+  
+       
+    const leave =()=>{
+       setIsAuth(null)
+
     }
     return(
         <div>
@@ -41,7 +40,7 @@ export const AdminPanel = ({setPizza, auth , ...props})=>{
         </div>
         </div>
         <div className={css.pizzaWrapper + ' container'}>
-            {props.pizza.map((e) => <PizzasEdit img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id}/>)}
+            {pizza.map((e) => <PizzasEdit img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id}/>)}
         </div>
 
         </div>
