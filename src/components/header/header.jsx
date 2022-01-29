@@ -6,7 +6,7 @@ export const Header = (props) => {
         <div className={css.wrapper + ' container'}>
             <div className={css.left}>
                 <Link className={css.logo} to='/'>
-                                <img className={css.logos}  src='https://upload.wikimedia.org/wikipedia/ru/thumb/9/91/Dodo_Logo.svg/640px-Dodo_Logo.svg.png'/>
+                                <img alt='#' className={css.logos}  src='https://upload.wikimedia.org/wikipedia/ru/thumb/9/91/Dodo_Logo.svg/640px-Dodo_Logo.svg.png'/>
                 </Link>
 
             <div className={css.leftCenter}>

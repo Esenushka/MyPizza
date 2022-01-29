@@ -1,25 +1,33 @@
 
 import './App.css';
 import {Header} from './components/header/header'
-import React from "react";
+import React, { useEffect } from "react";
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useLocation
 } from "react-router-dom";
 import { Navbar } from './components/navbar/navbar';
 import Main from './pages/main/Main';
 import {useState} from 'react'
 import { BonusPage } from './pages/bonusPage/bonus';
 import { Admin } from './pages/admin/admin';
+import { AdminPanel } from './pages/adminPanel/panel';
+import PublicRoute from './route/publicRoute';
+import PrivateRoute from './route/privateRoute';
+
 
 
 function App() {
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')) || [])
   const [pizza, setPizza] = useState([]);
   const [login, setLogin] = useState(false)
+  const [isAuth, setIsAuth] = useState(JSON.parse(localStorage.getItem('auth')) || null)
+
+  useEffect(() => {
+    localStorage.setItem('auth',JSON.stringify(isAuth))
+  }, [isAuth])
   return (
     <Router>
     <div className='App'>
@@ -34,12 +42,11 @@ function App() {
       <Navbar setLogin={setLogin} login={login} basket={basket}/>
             <BonusPage/>
          </Route>
-         <Route path='/adminAuth'>
-           <Admin/>
-         </Route>
-        <Route path='/adminPanel'>
-           PANEL
-        </Route>
+         {/* <Route path='/adminAuth'>
+           <Admin auth={isAuth}  setIsAuth={setIsAuth} />
+         </Route> */}
+         <PublicRoute path='/adminAuth' auth={isAuth} component={()=> <Admin setIsAuth={setIsAuth}/>}/>
+        <PrivateRoute path='/adminPanel' auth={isAuth} component={()=> <AdminPanel pizza={pizza} setPizza={setPizza}  setIsAuth={setIsAuth}/>} />
       </Switch>
 
     </div>

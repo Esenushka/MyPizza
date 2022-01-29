@@ -7,7 +7,7 @@ export const Order = (props) =>{
         <div>
             
             <Link to='/' className={css.order}>
-                <img src={props.img}/>
+                <img alt='#' src={props.img}/>
                 
                 <div className={css.cost}>
                     <div>{props.name}</div>
