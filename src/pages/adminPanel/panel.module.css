@@ -54,3 +54,21 @@
     grid-gap: 15px;
     flex-wrap: wrap;
 }
+.add{
+    width: 230px;
+    height: 335px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 15px;
+    margin: auto 0;
+    cursor: pointer;
+    border: solid 3px aquamarine;
+    font-size: 150px;
+    color: royalblue;
+    text-decoration: none;
+}
+.add:hover{
+    background-color: rgba(128,128,128, 0.5);
+
+}

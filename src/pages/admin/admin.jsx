@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 
-export const Admin = ({ auth  , setIsAuth })=>{
+export const Admin = ({ setIsAuth })=>{
     
     const [user,setUser] = useState('')
     const [pass,setPass] = useState('')
