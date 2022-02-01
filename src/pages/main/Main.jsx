@@ -4,6 +4,7 @@ import MySlider from "../../components/slider/Slider";
 import css from './Main.module.css'
 import Slider from 'react-slick'
 import { useEffect,useState } from "react";
+import Api from '../../api/api'
 
 
 
@@ -19,10 +20,9 @@ export default function Main (props){
         })
     },[])
     useEffect(()=>{
-        fetch("https://pizza-app-ulan.herokuapp.com/getall/pizza")
-        .then((res) => res.json())
-        .then((data) => {
-            props.setPizza(data.data.data)
+       Api.getAllPizza()
+        .then((res) => {
+            props.setPizza(res.data.data.data)
         })
     },)
     

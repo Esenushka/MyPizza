@@ -14,7 +14,7 @@ export const AddPizza = ({isAuth})=>{
                 token: isAuth
             },
             body: JSON.stringify({
-                image: 'ashd',
+                image: img,
                 name: 'sadha',
                 info: 'djad',
                 price: 'hadj'

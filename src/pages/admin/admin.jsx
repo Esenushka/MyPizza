@@ -1,7 +1,6 @@
 import css from './admin.module.css'
-import { useHistory ,Redirect } from 'react-router-dom'
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 export const Admin = ({ setIsAuth })=>{
@@ -12,23 +11,19 @@ export const Admin = ({ setIsAuth })=>{
     const submit =(e)=>{
         e.preventDefault()
         setDis(true)
-        fetch('https://pizza-app-ulan.herokuapp.com/admin', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
+     
+        
+        axios.post('https://pizza-app-ulan.herokuapp.com/admin', {
                 login: user,
                 password: pass
             })
-        })
+        
         .finally(()=>{
             setDis(true)
         })
-        .then((res) => res.json())
-        .then((data) => {
-            if(data?.token){
-                setIsAuth(data)
+        .then((res) => {
+            if(res.data?.token){
+                setIsAuth(res.data)
               
             }
             
@@ -37,7 +32,7 @@ export const Admin = ({ setIsAuth })=>{
         .catch((error) => {
             console.log(error);
         })
-        
+    
     }
     
     return(
