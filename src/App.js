@@ -16,6 +16,7 @@ import { Admin } from './pages/admin/admin';
 import { AdminPanel } from './pages/adminPanel/panel';
 import PublicRoute from './route/publicRoute';
 import PrivateRoute from './route/privateRoute';
+import { AddPizza } from './pages/addPizza/AddPizza';
 
 
 
@@ -42,11 +43,10 @@ function App() {
       <Navbar setLogin={setLogin} login={login} basket={basket}/>
             <BonusPage/>
          </Route>
-         {/* <Route path='/adminAuth'>
-           <Admin auth={isAuth}  setIsAuth={setIsAuth} />
-         </Route> */}
+       
          <PublicRoute path='/adminAuth' auth={isAuth} component={()=> <Admin setIsAuth={setIsAuth}/>}/>
         <PrivateRoute path='/adminPanel' auth={isAuth} component={()=> <AdminPanel pizza={pizza} setPizza={setPizza}  setIsAuth={setIsAuth}/>} />
+        <PrivateRoute path='/addPizza' auth={isAuth} component={()=> <AddPizza isAuth={isAuth}  setIsAuth={setIsAuth}/>} />
       </Switch>
 
     </div>

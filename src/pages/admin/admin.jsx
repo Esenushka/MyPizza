@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 
-export const Admin = ({ auth  , setIsAuth })=>{
+export const Admin = ({ setIsAuth })=>{
     
     const [user,setUser] = useState('')
     const [pass,setPass] = useState('')
@@ -12,9 +12,6 @@ export const Admin = ({ auth  , setIsAuth })=>{
     const submit =(e)=>{
         e.preventDefault()
         setDis(true)
-        // if(user === 'Esenushka' && pass === 'esen2709'){
-        //     history.push('/adminPanel')
-        // }
         fetch('https://pizza-app-ulan.herokuapp.com/admin', {
             method: 'POST',
             headers: {

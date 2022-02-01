@@ -1,6 +1,6 @@
 import css from './panel.module.css'
 import { useEffect } from 'react'
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import { Link, NavLink} from 'react-router-dom'
 import { PizzasEdit } from '../../components/pizzasEdit/pizzasEdit'
 
 
@@ -17,11 +17,12 @@ export const AdminPanel = ({setPizza , pizza, setIsAuth})=>{
             
         })
     })
-  
        
     const leave =()=>{
-       setIsAuth(null)
-
+      const question = window.confirm('Are you sure?')
+      if(question){
+          setIsAuth(null)
+      }
     }
     return(
         <div>
@@ -41,6 +42,7 @@ export const AdminPanel = ({setPizza , pizza, setIsAuth})=>{
         </div>
         <div className={css.pizzaWrapper + ' container'}>
             {pizza.map((e) => <PizzasEdit img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id}/>)}
+            <NavLink to='/addPizza' className={css.add}>+</NavLink>
         </div>
 
         </div>

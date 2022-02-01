@@ -5,7 +5,7 @@ export default function PrivateRoute({component: Component, path , auth}) {
   if(!auth){
       return <Redirect to='/adminAuth'/>
   }
-  return <Route>
+  return <Route path={path}>
       <Component/>
   </Route>
 }

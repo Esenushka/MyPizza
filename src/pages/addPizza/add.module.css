@@ -1,0 +1,56 @@
+.imgWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    grid-gap: 15px;
+}
+.imgWrapper div{
+    height: 55px;
+}
+.nameWrapper{
+    display: flex;
+flex-direction: column;
+    grid-gap: 15px;
+}
+.nameWrapper div{
+    height: 55px;
+}
+.desWrapper{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 15px;
+}
+.desWrapper div{
+    height: 55px;
+}
+.priceWrapper div{
+    height: 55px;
+}
+.priceWrapper{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 15px;
+}
+.btnWrapper{
+    width: 35%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    width: 220px;
+    height: 90px;
+    font-size: 40px;
+}
+.Wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    justify-content: space-around;
+}
+.underWrapper{
+    display: grid;
+    align-items: start;
+    width: 30%;
+}
