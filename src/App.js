@@ -46,7 +46,7 @@ function App() {
        
          <PublicRoute path='/adminAuth' auth={isAuth} component={()=> <Admin setIsAuth={setIsAuth}/>}/>
         <PrivateRoute path='/adminPanel' auth={isAuth} component={()=> <AdminPanel pizza={pizza} setPizza={setPizza}  setIsAuth={setIsAuth}/>} />
-        <PrivateRoute path='/addPizza' auth={isAuth} component={()=> <AddPizza setIsAuth={setIsAuth}/>} />
+        <PrivateRoute path='/addPizza' auth={isAuth} component={()=> <AddPizza isAuth={isAuth}  setIsAuth={setIsAuth}/>} />
       </Switch>
 
     </div>
