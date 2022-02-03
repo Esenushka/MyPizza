@@ -1,35 +1,39 @@
-import css from './add.module.css'
+import css from './editPizza.module.css'
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react'
-export const AddPizza = ({isAuth})=>{
+
+export const EditPizza = ({isAuth,pizza})=>{
     const [img,setImg] = useState('')
     const [name,setName] = useState('')
     const [des,setDes] = useState('')
     const [price,setPrice] = useState('')
+    pizza.forEach((item) => {
+     
+    })
     const submit = (e)=>{
         e.preventDefault();
-        fetch('https://pizza-app-ulan.herokuapp.com/add/pizza', {
-            method: 'POST',
-            headers: {
-                token: isAuth
-            },
-            body: JSON.stringify({
-                image: img,
-                name: name,
-                info: des,
-                price: price
-            })
-        })
+        // fetch('https://pizza-app-ulan.herokuapp.com/add/pizza', {
+        //     method: 'POST',
+        //     headers: {
+        //         token: isAuth
+        //     },
+        //     body: JSON.stringify({
+        //         image: img,
+        //         name: name,
+        //         info: des,
+        //         price: price
+        //     })
+        // })
     }
     const Input = styled('input')({
         display: 'none',
       });
-    return(
-        <div className={'container ' + css.Wrapper}>
+        return(
+            <div className={'container ' + css.Wrapper}>
             <NavLink to='/adminPanel' className={css.closeBtn}> 
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M9.61 12.199L.54 3.129A1.833 1.833 0 113.13.536l9.07 9.07L21.27.54a1.833 1.833 0 012.592 2.592l-9.068 9.068 9.07 9.07a1.833 1.833 0 01-2.59 2.592l-9.072-9.07-9.073 9.073a1.833 1.833 0 01-2.591-2.592L9.61 12.2z" fill="#0000FF"></path></svg>
             </NavLink>

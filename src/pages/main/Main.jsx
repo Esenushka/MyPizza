@@ -56,7 +56,7 @@ export default function Main (props){
             </div>
                 <div className={css.pizzaTitle + ' container'}>Пицца</div>
                 <div className={'container ' + css.wrapper}>
-                {props.pizza.map((e) => <Pizzas setBasket={props.setBasket} img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id} /> )}
+                {props.pizza.map((e) => <Pizzas id={e.id} setBasket={props.setBasket} img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id} /> )}
                 </div>
                 
             </div>

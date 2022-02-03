@@ -39,7 +39,7 @@ export const AdminPanel = ({setPizza , pizza, setIsAuth})=>{
         </div>
         </div>
         <div className={css.pizzaWrapper + ' container'}>
-            {pizza.map((e) => <PizzasEdit img={e.image} name={e.name} des={e.price} cost={e.price} key={e.id}/>)}
+            {pizza.map((e) => <PizzasEdit img={e.image} name={e.name} des={e.info} cost={e.price} key={e.id} id={e.id}/>)}
             <NavLink to='/addPizza' className={css.add}>+</NavLink>
         </div>
 
