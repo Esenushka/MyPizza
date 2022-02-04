@@ -1,8 +1,11 @@
-
+import { NavLink } from "react-router-dom";
 import css from "./edit.module.css";
 
-export const PizzasEdit = (props) => {
-  const onSelect = () => {};
+export const PizzasEdit = ({setEdit,...props}) => {
+  const onSelect = () => {
+    localStorage.setItem('edit',JSON.stringify(props))
+    setEdit(props)
+  };
   return (
     <div>
       <div className={css.pizza2}>
@@ -16,9 +19,9 @@ export const PizzasEdit = (props) => {
 
         <div className={css.footer}>
           <div>от {props.cost} сом</div>
-          <div onClick={onSelect} className={css.choose}>
+          <NavLink to='/editPizza' onClick={onSelect} className={css.choose}>
             Изменить
-          </div>
+          </NavLink>
         </div>
       </div>
     </div>

@@ -1,19 +1,15 @@
 import css from './editPizza.module.css'
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react'
 
-export const EditPizza = ({isAuth,pizza})=>{
+export const EditPizza = ()=>{
     const [img,setImg] = useState('')
     const [name,setName] = useState('')
     const [des,setDes] = useState('')
     const [price,setPrice] = useState('')
-    pizza.forEach((item) => {
-     
-    })
+    const edit = JSON.parse(localStorage.getItem('edit'))
     const submit = (e)=>{
         e.preventDefault();
         // fetch('https://pizza-app-ulan.herokuapp.com/add/pizza', {
@@ -29,9 +25,7 @@ export const EditPizza = ({isAuth,pizza})=>{
         //     })
         // })
     }
-    const Input = styled('input')({
-        display: 'none',
-      });
+  
         return(
             <div className={'container ' + css.Wrapper}>
             <NavLink to='/adminPanel' className={css.closeBtn}> 
@@ -46,15 +40,9 @@ export const EditPizza = ({isAuth,pizza})=>{
                 id="demo-helper-text-aligned"
               label="Img url"
              />
-            <label htmlFor="contained-button-file">
-              <Input accept="image/*" id="contained-button-file" multiple type="file" />
-              <Button variant="contained" component="span">
-                Upload
-              </Button>
-            </label>
             </div>
          
-                         <img src={img ? img : "https://dodopizza-a.akamaihd.net/static/Img/Products/1ee83fd7a0444e7c90bf593fdea61801_366x366.jpeg"}/>
+                         <img src={img ? img : edit.img}/>
             </div>
             <div className={css.underWrapper}>
 
@@ -67,7 +55,7 @@ export const EditPizza = ({isAuth,pizza})=>{
               id="demo-helper-text-aligned"
               label="Name of Pizza"
             />
-            <h2>{name ? name : 'Азитская'}</h2>
+            <h2>{name ? name : edit.name}</h2>
             </div>
             <div className={css.desWrapper}>
             <TextField
@@ -77,7 +65,7 @@ export const EditPizza = ({isAuth,pizza})=>{
               id="demo-helper-text-aligned"
               label="Description"
             />
-             <div>{des ? des : 'Моцарелла, сладкий перец, томаты, красный лук, фарш из говядины, сушеный перец чили, томатный соус'}</div>
+             <div>{des ? des : edit.des}</div>
             </div>
             <div className={css.priceWrapper}>
             <TextField
@@ -88,7 +76,7 @@ export const EditPizza = ({isAuth,pizza})=>{
                id="demo-helper-text-aligned"
                label="Price"
              />
-             <h3>от {price ? price : '520'} сом</h3>
+             <h3>от {price ? price : edit.cost} сом</h3>
             </div>
             </div>
             <form onSubmit={submit} className={css.btnWrapper}><Button type='submit'  className={css.btn} variant="outlined">Enter</Button></form>

@@ -1,6 +1,4 @@
 import css from './add.module.css'
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { NavLink } from 'react-router-dom';
@@ -25,9 +23,7 @@ export const AddPizza = ({isAuth})=>{
             })
         })
     }
-    const Input = styled('input')({
-        display: 'none',
-      });
+   
     return(
         <div className={'container ' + css.Wrapper}>
             <NavLink to='/adminPanel' className={css.closeBtn}> 
@@ -42,12 +38,6 @@ export const AddPizza = ({isAuth})=>{
                 id="demo-helper-text-aligned"
               label="Img url"
              />
-            <label htmlFor="contained-button-file">
-              <Input accept="image/*" id="contained-button-file" multiple type="file" />
-              <Button variant="contained" component="span">
-                Upload
-              </Button>
-            </label>
             </div>
          
                          <img src={img ? img : "https://dodopizza-a.akamaihd.net/static/Img/Products/1ee83fd7a0444e7c90bf593fdea61801_366x366.jpeg"}/>

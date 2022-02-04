@@ -6,17 +6,17 @@ import Api from '../../api/api'
 
 
 
-export const AdminPanel = ({setPizza , pizza, setIsAuth})=>{
+export const AdminPanel = ({setPizza,setEdit , pizza, setIsAuth})=>{
     
    
+    
     useEffect(()=>{
-        Api.getAllPizza()
-        .then((res) => {
-            setPizza(res.data.data.data)
-            
+        fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/pizzas")
+        .then((res) => res.json())
+        .then((data) => {
+            setPizza(data)
         })
-    })
-  
+    },[])
        
     const leave =()=>{
        setIsAuth(null)
@@ -39,7 +39,7 @@ export const AdminPanel = ({setPizza , pizza, setIsAuth})=>{
         </div>
         </div>
         <div className={css.pizzaWrapper + ' container'}>
-            {pizza.map((e) => <PizzasEdit img={e.image} name={e.name} des={e.info} cost={e.price} key={e.id} id={e.id}/>)}
+            {pizza.map((e) => <PizzasEdit setEdit={setEdit} img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id} id={e.id}/>)}
             <NavLink to='/addPizza' className={css.add}>+</NavLink>
         </div>
 
