@@ -40,7 +40,7 @@ export const AddPizza = ({isAuth})=>{
              />
             </div>
          
-                         <img src={img ? img : "https://dodopizza-a.akamaihd.net/static/Img/Products/1ee83fd7a0444e7c90bf593fdea61801_366x366.jpeg"}/>
+                         <img className={css.img} src={img ? img : "https://dodopizza-a.akamaihd.net/static/Img/Products/1ee83fd7a0444e7c90bf593fdea61801_366x366.jpeg"}/>
             </div>
             <div className={css.underWrapper}>
 
