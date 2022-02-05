@@ -1,17 +1,19 @@
 import css from './admin.module.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { useDispatch } from 'react-redux';
 
 export const Admin = ({ setIsAuth })=>{
     
     const [user,setUser] = useState('')
     const [pass,setPass] = useState('')
     const [dis,setDis] = useState(false)
+    const dispatch = useDispatch();
     const submit =(e)=>{
         e.preventDefault()
         setDis(true)
-     
+
+        
         
         axios.post('https://pizza-app-ulan.herokuapp.com/admin', {
                 login: user,
@@ -23,7 +25,10 @@ export const Admin = ({ setIsAuth })=>{
         })
         .then((res) => {
             if(res.data?.token){
-                setIsAuth(res.data)
+                dispatch({
+                    type: "success authorization",
+                    playload: res.data
+                })
               
             }
             

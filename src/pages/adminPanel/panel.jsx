@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { PizzasEdit } from "../../components/pizzasEdit/pizzasEdit";
 import Api from "../../api/api";
+import { useDispatch } from "react-redux";
 
 export const AdminPanel = ({ setPizza, setEdit, pizza, setIsAuth }) => {
   useEffect(() => {
@@ -12,9 +13,9 @@ export const AdminPanel = ({ setPizza, setEdit, pizza, setIsAuth }) => {
         setPizza(data);
       });
   });
-
+  const dispatch = useDispatch()
   const leave = () => {
-    setIsAuth(null);
+     dispatch({ type: "logout auth"})
   };
   return (
     <div>
