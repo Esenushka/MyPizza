@@ -1,5 +1,7 @@
 import css from './add.module.css'
-import { TextField,Button } from '@mui/material'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react'
 export const AddPizza = ({isAuth})=>{
     const [img,setImg] = useState('')
@@ -15,24 +17,30 @@ export const AddPizza = ({isAuth})=>{
             },
             body: JSON.stringify({
                 image: img,
-                name: 'sadha',
-                info: 'djad',
-                price: 'hadj'
+                name: name,
+                info: des,
+                price: price
             })
         })
     }
+   
     return(
         <div className={'container ' + css.Wrapper}>
+            <NavLink to='/adminPanel' className={css.closeBtn}> 
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M9.61 12.199L.54 3.129A1.833 1.833 0 113.13.536l9.07 9.07L21.27.54a1.833 1.833 0 012.592 2.592l-9.068 9.068 9.07 9.07a1.833 1.833 0 01-2.59 2.592l-9.072-9.07-9.073 9.073a1.833 1.833 0 01-2.591-2.592L9.61 12.2z" fill="#0000FF"></path></svg>
+            </NavLink>
             <div className={css.imgWrapper}>
-            <TextField
+            <div className={css.underImgWrapper}>
+                    <TextField
             value={img} 
             onChange={(e)=> setImg(e.target.value)}
               helperText=" "
                 id="demo-helper-text-aligned"
               label="Img url"
              />
+            </div>
          
-                         <img src={img ? img : "https://dodopizza-a.akamaihd.net/static/Img/Products/1ee83fd7a0444e7c90bf593fdea61801_366x366.jpeg"}/>
+                         <img className={css.img} src={img ? img : "https://dodopizza-a.akamaihd.net/static/Img/Products/1ee83fd7a0444e7c90bf593fdea61801_366x366.jpeg"}/>
             </div>
             <div className={css.underWrapper}>
 

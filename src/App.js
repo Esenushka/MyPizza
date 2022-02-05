@@ -17,7 +17,7 @@ import { AdminPanel } from './pages/adminPanel/panel';
 import PublicRoute from './route/publicRoute';
 import PrivateRoute from './route/privateRoute';
 import { AddPizza } from './pages/addPizza/AddPizza';
-
+import { EditPizza } from './pages/editPizza/editPizza';
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
   const [pizza, setPizza] = useState([]);
   const [login, setLogin] = useState(false)
   const [isAuth, setIsAuth] = useState(JSON.parse(localStorage.getItem('auth')) || null)
+  const [edit, setEdit] = useState([])
 
   useEffect(() => {
     localStorage.setItem('auth',JSON.stringify(isAuth))
@@ -45,8 +46,9 @@ function App() {
          </Route>
        
          <PublicRoute path='/adminAuth' auth={isAuth} component={()=> <Admin setIsAuth={setIsAuth}/>}/>
-        <PrivateRoute path='/adminPanel' auth={isAuth} component={()=> <AdminPanel pizza={pizza} setPizza={setPizza}  setIsAuth={setIsAuth}/>} />
-        <PrivateRoute path='/addPizza' auth={isAuth} component={()=> <AddPizza isAuth={isAuth}  setIsAuth={setIsAuth}/>} />
+        <PrivateRoute path='/adminPanel' auth={isAuth} component={()=> <AdminPanel setEdit={setEdit} pizza={pizza} setPizza={setPizza}  setIsAuth={setIsAuth}/>} />
+        <PrivateRoute path='/addPizza' auth={isAuth} component={()=> <AddPizza isAuth={isAuth} />} /> 
+        <PrivateRoute path='/editPizza' auth={isAuth} component={()=> <EditPizza edit={edit} pizza={pizza} />} />
       </Switch>
 
     </div>

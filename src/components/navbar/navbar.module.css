@@ -66,6 +66,10 @@
     position: fixed;
     right: -1000px;
 }
+.closeBtn:hover{
+    transition: transform 500ms ease 0s;
+    transform: rotate(180deg);
+}
 .windowCarts{
     opacity: 0;
     

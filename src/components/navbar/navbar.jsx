@@ -13,7 +13,7 @@ export const Navbar = ({setLogin,...props}) =>{
         <nav className={css.navbar}>
         <div className={'container ' + css.cont}>
              <div className={css.help}>
-                 <a href='navbar' className={css.navbars}>Пицца</a>
+                 <a href='#pizza' className={css.navbars}>Пицца</a>
                  <a href='navbar' className={css.navbars}>Комбо</a>
                  <a href='navbar' className={css.navbars}>Закуски</a>
                  <a href='navbar' className={css.navbars}>Десерты</a>
