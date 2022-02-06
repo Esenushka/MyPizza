@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import css from './navbar.module.css'
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 export const Navbar = ({setLogin,...props}) =>{
     const [cart, setCart] = useState(false);
+    const basket = useSelector((state)=> state.basket.data) 
     const BasketWindow = ()=>{
         setCart(!cart)
     }
@@ -25,7 +27,7 @@ export const Navbar = ({setLogin,...props}) =>{
                  <a href='navbar' className={css.navbars}>Прямой эфир</a>
 
              </div> 
-             <div onClick={BasketWindow} className={css.bucket}>Корзина<div className={css.many}>{props.basket.length}</div></div>
+             <div onClick={BasketWindow} className={css.bucket}>Корзина<div className={css.many}>{basket.length}</div></div>
         </div>
         <div className={css.windowCarts + ' ' + (cart ?  css.active1 : '')}>
             <div onClick={BasketWindow} className={css.closeWindow + ' ' + (cart ?  css.active4 : '')}></div>
@@ -37,19 +39,19 @@ export const Navbar = ({setLogin,...props}) =>{
                    
             <div>
                 <div className={css.price}>
-                    {props.basket.length} товаров на {
-                      props.basket.reduce((akk,el)=>{
+                    {basket.length} товаров на {
+                      basket.reduce((akk,el)=>{
                         return akk + el.cost
                       }, 0)
                     } сом
                 </div>
-                {props.basket.map((e) => <BasketPizzas key={e.id} img={e.img} name={e.name} cost={e.cost}/>)}
+                {basket.map((e) => <BasketPizzas key={e.id} img={e.img} name={e.name} cost={e.cost}/>)}
             </div>
 
             <div className={css.footer}>
                 <div className={css.price2}> 
-                    <div>{props.basket.length} товаров</div>
-                    <div>{props.basket.reduce((akk,el)=>{
+                    <div>{basket.length} товаров</div>
+                    <div>{basket.reduce((akk,el)=>{
                         return akk + el.cost
                       }, 0)
                     } сом</div>
@@ -57,7 +59,7 @@ export const Navbar = ({setLogin,...props}) =>{
                 <hr />
                 <div className={css.price3}> 
                     <div>Сумма заказа</div>
-                    <div>{props.basket.reduce((akk,el)=>{
+                    <div>{basket.reduce((akk,el)=>{
                         return akk + el.cost
                       }, 0)
                     } сом</div>

@@ -17,7 +17,8 @@ const InState2 = {
 }
 const basketReducer =  (state = InState2, action) => {
     switch (action.type){
-        
+        case 'basket':
+            return{...state, data: action.playload}
         default:
             return state
     }

@@ -1,20 +1,29 @@
 import { Link } from 'react-router-dom'
 import css from './pizzas.module.css'
-
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 export const Pizzas = ({setBasket , ...props}) => {
+    const basket = useSelector((state) => state.basket.data)
 
+    const dispatch = useDispatch()
   const onSelect = () => {
       let count = 0;
-    const basket = JSON.parse(localStorage.getItem("basket")) || []
-    basket.forEach((item, index) => {
+    
+    basket.forEach((item) => {
         if (item.id === props.id) {
             count++
         }
     })
-    if (count === 0) {
-        basket.push(props)
+    if (count === 0) { 
+        dispatch({
+            type: 'basket',
+            playload: [...basket,props]
+        })
         localStorage.setItem("basket", JSON.stringify(basket))
-        setBasket(basket)
+        
+       
+
+        
     }
 }
     return(

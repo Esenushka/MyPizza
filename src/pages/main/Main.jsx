@@ -11,7 +11,6 @@ import Api from '../../api/api'
 export default function Main (props){
     const [cards, setCards] = useState([]);
     
-    
     useEffect(()=>{
         fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/order")
         .then((res) => res.json())
@@ -20,9 +19,10 @@ export default function Main (props){
         })
     },[])
     useEffect(()=>{
-       Api.getAllPizza()
-        .then((res) => {
-            props.setPizza(res.data.data.data)
+    fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/pizzas")
+        .then((res) => res.json())
+        .then((data) => {
+            props.setPizza(data)
         })
     },)
     
