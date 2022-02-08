@@ -2,8 +2,9 @@ import css from './admin.module.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import { successAuth } from '../../redux/actions/authActions';
 
-export const Admin = ({ setIsAuth })=>{
+export const Admin = ( )=>{
     
     const [user,setUser] = useState('')
     const [pass,setPass] = useState('')
@@ -25,10 +26,7 @@ export const Admin = ({ setIsAuth })=>{
         })
         .then((res) => {
             if(res.data?.token){
-                dispatch({
-                    type: "success authorization",
-                    playload: res.data
-                })
+                dispatch(successAuth(res.data))
               
             }
             

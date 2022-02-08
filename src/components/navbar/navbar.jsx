@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 export const Navbar = ({setLogin,...props}) =>{
     const [cart, setCart] = useState(false);
     const basket = useSelector((state)=> state.basket.data) 
+
     const BasketWindow = ()=>{
         setCart(!cart)
     }

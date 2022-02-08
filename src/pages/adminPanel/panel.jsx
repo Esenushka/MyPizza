@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { PizzasEdit } from "../../components/pizzasEdit/pizzasEdit";
 import Api from "../../api/api";
 import { useDispatch } from "react-redux";
+import { logoutAuth, successAuth } from "../../redux/actions/authActions";
 
 export const AdminPanel = ({ setPizza, setEdit, pizza, setIsAuth }) => {
   useEffect(() => {
@@ -15,7 +16,7 @@ export const AdminPanel = ({ setPizza, setEdit, pizza, setIsAuth }) => {
   });
   const dispatch = useDispatch()
   const leave = () => {
-     dispatch({ type: "logout auth"})
+    dispatch( logoutAuth ())
   };
   return (
     <div>

@@ -22,23 +22,26 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
-  const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')) || [])
   const [pizza, setPizza] = useState([]);
   const [login, setLogin] = useState(false)
   const [edit, setEdit] = useState([])
   const authData = useSelector((state) => state.auth.data)
+  const basket = useSelector((state) => state.basket.data)
 
   useEffect(()=>{
     localStorage.setItem('auth',JSON.stringify(authData))
   },[authData])
+  useEffect(()=>{
+    localStorage.setItem('basket',JSON.stringify(basket))
+  },[basket])
   return (
     <Router>
     <div className='App'>
       <Switch>
          <Route exact path='/'>
          <Header />
-      <Navbar setLogin={setLogin} login={login} basket={basket}/>
-          <Main pizza={pizza} setPizza={setPizza} setBasket={setBasket}/>
+      <Navbar setLogin={setLogin} login={login} />
+          <Main pizza={pizza} setPizza={setPizza} />
          </Route>
          <Route path='/bonus'>
          <Header />

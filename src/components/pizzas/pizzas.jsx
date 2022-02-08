@@ -16,12 +16,10 @@ export const Pizzas = ({setBasket , ...props}) => {
     })
     if (count === 0) { 
         dispatch({
-            type: 'basket',
+            type: 'basket/GET_PIZZAS',
             playload: [...basket,props]
         })
-        localStorage.setItem("basket", JSON.stringify(basket))
-        
-       
+
 
         
     }
