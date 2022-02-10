@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import css from './pizzas.module.css'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
+import { addPizzaAC } from '../../redux/actions/basketActions'
 export const Pizzas = ({setBasket , ...props}) => {
     const basket = useSelector((state) => state.basket.data)
 
@@ -15,13 +16,7 @@ export const Pizzas = ({setBasket , ...props}) => {
         }
     })
     if (count === 0) { 
-        dispatch({
-            type: 'basket/GET_PIZZAS',
-            playload: [...basket,props]
-        })
-
-
-        
+     dispatch(addPizzaAC([...basket,props]))    
     }
 }
     return(

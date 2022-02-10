@@ -3,17 +3,11 @@ import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { PizzasEdit } from "../../components/pizzasEdit/pizzasEdit";
 import Api from "../../api/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutAuth, successAuth } from "../../redux/actions/authActions";
 
-export const AdminPanel = ({ setPizza, setEdit, pizza, setIsAuth }) => {
-  useEffect(() => {
-    fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/pizzas")
-      .then((res) => res.json())
-      .then((data) => {
-        setPizza(data);
-      });
-  });
+export const AdminPanel = ({ setPizza, setEdit, setIsAuth }) => {
+  const pizza = useSelector((state)=>state.pizza.data)
   const dispatch = useDispatch()
   const leave = () => {
     dispatch( logoutAuth ())

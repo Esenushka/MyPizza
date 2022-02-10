@@ -18,16 +18,22 @@ import PublicRoute from './route/publicRoute';
 import PrivateRoute from './route/privateRoute';
 import { AddPizza } from './pages/addPizza/AddPizza';
 import { EditPizza } from './pages/editPizza/editPizza';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Api from './api/api';
+import { getPizzaAC } from './redux/actions/pizzaActions';
 
 
 function App() {
   const [pizza, setPizza] = useState([]);
   const [login, setLogin] = useState(false)
   const [edit, setEdit] = useState([])
+  const dispatch = useDispatch()
   const authData = useSelector((state) => state.auth.data)
   const basket = useSelector((state) => state.basket.data)
-
+  Api.getAllPizza()
+  .then((res) => {
+      dispatch(getPizzaAC(res.data))
+  },[])
   useEffect(()=>{
     localStorage.setItem('auth',JSON.stringify(authData))
   },[authData])

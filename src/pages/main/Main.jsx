@@ -5,12 +5,13 @@ import css from './Main.module.css'
 import Slider from 'react-slick'
 import { useEffect,useState } from "react";
 import Api from '../../api/api'
+import { useSelector } from "react-redux";
 
 
 
 export default function Main (props){
     const [cards, setCards] = useState([]);
-    
+    const pizza = useSelector((state)=>state.pizza.data)
     useEffect(()=>{
         fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/order")
         .then((res) => res.json())
@@ -18,13 +19,8 @@ export default function Main (props){
             setCards(data)
         })
     },[])
-    useEffect(()=>{
-    fetch("https://61da936a4593510017aff59d.mockapi.io/pizza/pizzas")
-        .then((res) => res.json())
-        .then((data) => {
-            props.setPizza(data)
-        })
-    },)
+    
+    
     
     const settings = {
         dots: false,
@@ -40,7 +36,7 @@ export default function Main (props){
             <div>
                 <MySlider/>
                 <div className={css.oftenOrder + ' container'}>Часто заказывают</div>
-                <Slider {...settings} className={css.order + ' container'}>
+                <Slider {...settings} className={ ' container'}>
                      {cards.map((e) => <Order img={e.img} name={e.name} cost={e.cost} key={e.id}/> )}
                 </Slider>
                
@@ -56,7 +52,7 @@ export default function Main (props){
             </div>
                 <div id="pizza" className={css.pizzaTitle + ' container'}>Пицца</div>
                 <div className={'container ' + css.wrapper}>
-                {props.pizza.map((e) => <Pizzas id={e.id} setBasket={props.setBasket} img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id} /> )}
+                {pizza.map((e) => <Pizzas id={e.id} setBasket={props.setBasket} img={e.img} name={e.name} des={e.des} cost={e.cost} key={e.id} /> )}
                 </div>
                 
             </div>
