@@ -1,9 +1,12 @@
-import { combineReducers, createStore } from 'redux'
+import { combineReducers, createStore , applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import { authReducer } from './reducer/authReduce'
 import { basketReducer } from './reducer/basketReducer'
 import { pizzaReducer } from './reducer/pizzaReducer'
-export const store = createStore(combineReducers({
+const reducer = combineReducers({
     auth: authReducer ,
     basket: basketReducer ,
     pizza: pizzaReducer
-}))
+})
+export const store = createStore(reducer, applyMiddleware(thunk))
+window.store = store
