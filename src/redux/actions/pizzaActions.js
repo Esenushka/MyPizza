@@ -1,4 +1,4 @@
-import api from "../../api/api";
+import Api from "../../api/api";
 import { GET_PIZZA } from "../actionTypes";
 
 export const getPizzaAC = (playload)=>({
@@ -8,7 +8,7 @@ export const getPizzaAC = (playload)=>({
 
 export const getPizzaAsync = ()=>{
     return(dispatch) => {
-    api.getAllPizza()
+    Api.getAllPizza()
     .then((res) => {
         dispatch(getPizzaAC(res.data))
     

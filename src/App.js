@@ -24,10 +24,15 @@ function App() {
   const dispatch = useDispatch();
   const authData = useSelector((state) => state.auth.data);
   const basket = useSelector((state) => state.basket.data);
-  const { isLoading, data } = (state) => state.pizza;
+  const menu = useSelector((state) => state.pizza.data)
+  const isLoading = ((state) => state.pizza.isLoading);
   Api.getAllPizza().then((res) => {
     dispatch(getPizzaAC(res.data));
   }, []);
+  
+  useEffect(() => {
+    localStorage.setItem("menu", JSON.stringify(menu));
+  }, [menu]);
   useEffect(() => {
     localStorage.setItem("auth", JSON.stringify(authData));
   }, [authData]);
@@ -37,9 +42,9 @@ function App() {
   useEffect(() => {
     dispatch(getPizzaAsync())
   }, [])
-  if (isLoading) {
-    return <Preloader />;
-  }
+  // if(isLoading){
+  //   return <Preloader/>
+  // }
   return (
     <Router>
       <div className="App">

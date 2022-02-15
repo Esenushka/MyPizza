@@ -4,26 +4,16 @@ import Button from "@mui/material/Button";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
+
 export const EditPizza = () => {
   const [img, setImg] = useState("");
   const [name, setName] = useState("");
   const [des, setDes] = useState("");
   const [price, setPrice] = useState("");
   const edit = JSON.parse(localStorage.getItem("edit"));
+
   const submit = (e) => {
     e.preventDefault();
-    // fetch('https://pizza-app-ulan.herokuapp.com/add/pizza', {
-    //     method: 'POST',
-    //     headers: {
-    //         token: isAuth
-    //     },
-    //     body: JSON.stringify({
-    //         image: img,
-    //         name: name,
-    //         info: des,
-    //         price: price
-    //     })
-    // })
   };
 
   return (

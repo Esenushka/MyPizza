@@ -2,7 +2,6 @@ import css from "./panel.module.css";
 import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { PizzasEdit } from "../../components/pizzasEdit/pizzasEdit";
-import Api from "../../api/api";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAuth, successAuth } from "../../redux/actions/authActions";
 

@@ -3,25 +3,21 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react'
-export const AddPizza = ({isAuth})=>{
+import { useDispatch } from "react-redux";
+import { getPizzaAC } from "../../redux/actions/pizzaActions";
+import { useSelector } from "react-redux";
+export const AddPizza = ()=>{
+    const pizza = useSelector((state) => state.pizza.data)
     const [img,setImg] = useState('')
     const [name,setName] = useState('')
     const [des,setDes] = useState('')
     const [price,setPrice] = useState('')
+    const dispatch = useDispatch()
+    const changed = {img:img,name:name,des:des,cost:price,id: pizza.length}
     const submit = (e)=>{
         e.preventDefault();
-        fetch('https://pizza-app-ulan.herokuapp.com/add/pizza', {
-            method: 'POST',
-            headers: {
-                token: isAuth
-            },
-            body: JSON.stringify({
-                image: img,
-                name: name,
-                info: des,
-                price: price
-            })
-        })
+        dispatch(getPizzaAC([...pizza,changed]))
+
     }
    
     return(

@@ -1,8 +1,8 @@
 import { GET_PIZZA } from "../actionTypes"
 
 const InState2 = {
-    data: [] ,
-    isLoading: true 
+    data: JSON.parse(localStorage.getItem('menu')) || [] ,
+    isLoading: true
 }
 export const pizzaReducer =  (state = InState2, action) => {
     switch (action.type){
